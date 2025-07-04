@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz de Inteligência Emocional</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .result {
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 20px;
+            color: green;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Quiz de Inteligência Emocional</h1>
+
+<form id="quizForm">
+
+<div class="question">
+<p>1. Quando você recebe um feedback que não esperava, o que costuma acontecer primeiro?</p>
+<input type="radio" name="q1" value="A" required> Fico na defensiva ou justifico na hora<br>
+<input type="radio" name="q1" value="B"> Tento entender melhor o que a pessoa quis dizer<br>
+<input type="radio" name="q1" value="C"> Fico mal, remoendo a crítica por dias<br>
+</div>
+
+<div class="question">
+<p>2. Você está num dia difícil e um colega faz uma brincadeira sem graça. Você…</p>
+<input type="radio" name="q2" value="A" required> Estoura e responde atravessado<br>
+<input type="radio" name="q2" value="B"> Respira fundo e decide conversar depois<br>
+<input type="radio" name="q2" value="C"> Guarda tudo e se afasta em silêncio<br>
+</div>
+
+<div class="question">
+<p>3. Com qual dessas frases você mais se identifica?</p>
+<input type="radio" name="q3" value="A" required> “Eu sou assim mesmo, não consigo mudar.”<br>
+<input type="radio" name="q3" value="B"> “Consigo mudar, mas preciso de ferramentas.”<br>
+<input type="radio" name="q3" value="C"> “Tenho tentado mudar, mas me sinto travado(a) às vezes.”<br>
+</div>
+
+<div class="question">
+<p>4. Quando algo dá errado no trabalho, você costuma:</p>
+<input type="radio" name="q4" value="A" required> Culpar alguém ou se justificar<br>
+<input type="radio" name="q4" value="B"> Refletir sobre o que pode melhorar<br>
+<input type="radio" name="q4" value="C"> Ficar frustrado(a) e desmotivado(a) por dias<br>
+</div>
+
+<div class="question">
+<p>5. Quando alguém expressa emoções fortes perto de você:</p>
+<input type="radio" name="q5" value="A" required> Você se afasta ou ignora<br>
+<input type="radio" name="q5" value="B"> Tenta entender o que a pessoa sente<br>
+<input type="radio" name="q5" value="C"> Se sente perdido(a) sem saber o que fazer<br>
+</div>
+
+<div class="question">
+<p>6. Quando está sob pressão, você:</p>
+<input type="radio" name="q6" value="A" required> Costuma explodir ou agir por impulso<br>
+<input type="radio" name="q6" value="B"> Respira fundo e tenta se organizar<br>
+<input type="radio" name="q6" value="C"> Fica paralisado(a) ou procrastina<br>
+</div>
+
+<div class="question">
+<p>7. Quando precisa dizer “não” ou impor limites:</p>
+<input type="radio" name="q7" value="A" required> Se sente culpado(a) ou evita o assunto<br>
+<input type="radio" name="q7" value="B"> Se comunica com clareza e respeito<br>
+<input type="radio" name="q7" value="C"> Fica em dúvida e acaba cedendo<br>
+</div>
+
+<div class="question">
+<p>8. Em conflitos, você:</p>
+<input type="radio" name="q8" value="A" required> Reage no calor da emoção<br>
+<input type="radio" name="q8" value="B"> Tenta entender o outro lado e buscar solução<br>
+<input type="radio" name="q8" value="C"> Evita o conflito a todo custo<br>
+</div>
+
+<div class="question">
+<p>9. Sobre suas emoções, você diria que:</p>
+<input type="radio" name="q9" value="A" required> Nem sempre percebe o que sente<br>
+<input type="radio" name="q9" value="B"> Consegue identificar e lidar bem com o que sente<br>
+<input type="radio" name="q9" value="C"> Sente muito, mas não sabe o que fazer com isso<br>
+</div>
+
+<div class="question">
+<p>10. Quando enfrenta um desafio pessoal ou profissional:</p>
+<input type="radio" name="q10" value="A" required> Pensa logo em desistir<br>
+<input type="radio" name="q10" value="B"> Busca alternativas e mantém a motivação<br>
+<input type="radio" name="q10" value="C"> Se sente travado(a) e inseguro(a)<br>
+</div>
+
+<button type="button" onclick="showResult()">Ver Resultado</button>
+
+</form>
+
+<p class="result" id="result"></p>
+
+<script>
+function showResult() {
+    var countA = 0;
+    var countB = 0;
+    var countC = 0;
+
+    for (var i = 1; i <= 10; i++) {
+        var options = document.getElementsByName('q' + i);
+        for (var j = 0; j < options.length; j++) {
+            if (options[j].checked) {
+                if (options[j].value === 'A') countA++;
+                if (options[j].value === 'B') countB++;
+                if (options[j].value === 'C') countC++;
+            }
+        }
+    }
+
+    var resultText = document.getElementById('result');
+
+    if (countA >= countB && countA >= countC) {
+        resultText.innerHTML = "<b>🔵 Perfil A – Em Construção</b><br><br>Você está no começo da jornada do autoconhecimento e da inteligência emocional. Talvez ainda tenha dificuldade em reconhecer ou lidar com as próprias emoções, o que é absolutamente normal. A boa notícia? Inteligência emocional se aprende e se desenvolve com o tempo.<br><br>✨ <b>Dica prática:</b> Comece a observar, sem julgamento, como você reage em situações difíceis. Apenas perceber o que sente já é um grande passo.";
+    } else if (countB >= countA && countB >= countC) {
+        resultText.innerHTML = "<b>🟣 Perfil C – Avançado, mas sempre em evolução</b><br><br>Você demonstra um nível elevado de consciência emocional. Já percebe as próprias emoções, compreende o impacto delas no dia a dia e, frequentemente, age de forma equilibrada, mesmo sob pressão. Mas, como todo ser humano, você sabe que inteligência emocional é um treino contínuo.<br><br>✨ <b>Dica prática:</b> Desafie-se a aplicar o que já sabe em situações novas e observe como pode, ainda mais, se fortalecer emocionalmente e inspirar quem está ao seu redor.";
+    } else {
+        resultText.innerHTML = "<b>🟢 Perfil B – Em Desenvolvimento</b><br><br>Você já deu passos importantes no caminho da inteligência emocional. Consegue perceber suas emoções e, em muitos momentos, gerenciá-las de forma saudável. Sabe que nem sempre é fácil, mas reconhece a importância de continuar evoluindo.<br><br>✨ <b>Dica prática:</b> Continue investindo em pequenas pausas durante o dia, pratique o autocuidado e, sempre que possível, converse sobre suas emoções. Isso reforça o seu processo de desenvolvimento.";
+    }
+}
+</script>
+
+</body>
+</html>
